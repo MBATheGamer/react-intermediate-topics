@@ -1,5 +1,5 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 type Todo = {
   id: number;
@@ -9,21 +9,17 @@ type Todo = {
 };
 
 const TodoList = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos")
-      .then(response => setTodos(response.data))
-      .catch(error => setError(error));
-  }, []);
-
-  if (error) return <p>{error}</p>;
+  const { data: todos } = useQuery({
+    queryKey: ["todos"],
+    queryFn: () =>
+      axios
+        .get<Todo[]>("https://jsonplaceholder.typicode.com/todos")
+        .then(response => response.data),
+  });
 
   return (
     <ul className="list-group">
-      {todos.map(todo => (
+      {todos?.map(todo => (
         <li key={todo.id} className="list-group-item">
           {todo.title}
         </li>
