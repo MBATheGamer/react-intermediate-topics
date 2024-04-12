@@ -8,6 +8,7 @@
     "build": "bun x --bun vite build"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.29.2",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "react": "^18.2.0",
