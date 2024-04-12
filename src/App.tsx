@@ -1,4 +1,4 @@
-export const App = () => {
+const App = () => {
   return <h1>React Starter Project</h1>;
 };
 
