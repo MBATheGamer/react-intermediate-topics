@@ -1,7 +1,7 @@
-import TodoList from "./react-query/TodoList";
+import PostList from "./react-query/PostList";
 
 const App = () => {
-  return <TodoList />;
+  return <PostList />;
 };
 
 export default App;

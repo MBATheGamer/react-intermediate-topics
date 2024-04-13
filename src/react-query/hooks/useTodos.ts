@@ -8,8 +8,8 @@ type Todo = {
   completed: boolean;
 };
 
-const useTodos = () => {
-  return useQuery<Todo[], Error>({
+const useTodos = () =>
+  useQuery<Todo[], Error>({
     queryKey: ["todos"],
     queryFn: () =>
       axios
@@ -17,6 +17,5 @@ const useTodos = () => {
         .then(response => response.data),
     staleTime: 10 * 1000,
   });
-};
 
 export default useTodos;
