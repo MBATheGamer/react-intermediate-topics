@@ -9,13 +9,19 @@ type Todo = {
 };
 
 const TodoList = () => {
-  const { data: todos, error } = useQuery<Todo[], Error>({
+  const {
+    data: todos,
+    error,
+    isLoading,
+  } = useQuery<Todo[], Error>({
     queryKey: ["todos"],
     queryFn: () =>
       axios
         .get<Todo[]>("https://jsonplaceholder.typicode.com/todos")
         .then(response => response.data),
   });
+
+  if (isLoading) return <p>Loading...</p>;
 
   if (error) return <p>{error.message}</p>;
 
