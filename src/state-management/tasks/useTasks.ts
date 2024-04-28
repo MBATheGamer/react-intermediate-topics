@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import TasksContext from "./tasksContext";
 
-const useAuth = () => useContext(TasksContext);
+const useTasks = () => useContext(TasksContext);
 
-export default useAuth;
+export default useTasks;
