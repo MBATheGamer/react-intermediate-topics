@@ -4,7 +4,7 @@ import { useTasks } from "./tasks";
 
 const NavBar = () => {
   const { tasks } = useTasks();
-  const { counter } = useCounterStore();
+  const counter = useCounterStore(store => store.counter);
 
   return (
     <nav className="navbar d-flex justify-content-between">
