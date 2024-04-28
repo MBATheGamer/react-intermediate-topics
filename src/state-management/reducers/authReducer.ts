@@ -7,7 +7,7 @@ type LogoutAction = {
   type: "LOGOUT";
 };
 
-type AuthAction = LoginAction | LogoutAction;
+export type AuthAction = LoginAction | LogoutAction;
 
 const authReducer = (_status: string, action: AuthAction): string => {
   switch (action.type) {
